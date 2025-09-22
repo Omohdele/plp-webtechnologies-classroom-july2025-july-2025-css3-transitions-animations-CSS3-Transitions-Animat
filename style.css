@@ -1,0 +1,200 @@
+/* Part 1: CSS Transitions and Animations for Dynamic Styling Effects */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Colored background: Subtle gradient for techy, professional look */
+    background: linear-gradient(135deg, #003087 0%, #00aaff 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+header {
+    background-color: #003087;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+nav {
+    margin-top: 1rem;
+}
+
+nav button {
+    margin: 0 0.5rem;
+}
+
+/* Button Styling with Hover Animation */
+button {
+    padding: 0.8rem 1.5rem;
+    background-color: #0057d8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background-color: #003087;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:focus {
+    outline: 2px solid #00aaff;
+    outline-offset: 2px;
+}
+
+/* Card Flip Animation */
+.card-section {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for contrast */
+    border-radius: 10px;
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.card {
+    width: 300px;
+    height: 200px;
+    margin: 1rem auto;
+    position: relative;
+    perspective: 1000px;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.6s ease;
+}
+
+.card-front {
+    background-color: #0057d8;
+    color: white;
+}
+
+.card-back {
+    background-color: #00aaff;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.card.flipped .card-front {
+    transform: rotateY(-180deg);
+}
+
+.card.flipped .card-back {
+    transform: rotateY(0deg);
+}
+
+/* Modal Fade and Slide Animation */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    transform: translateY(-50px);
+    animation: slideIn 0.5s ease-out;
+}
+
+.modal.closing .modal-content {
+    animation: slideOut 0.5s ease-in forwards;
+}
+
+form {
+    margin: 1rem 0;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-100px); opacity: 0; }
+    to { transform: translateY(-50px); opacity: 1; }
+}
+
+@keyframes slideOut {
+    from { transform: translateY(-50px); opacity: 1; }
+    to { transform: translateY(-100px); opacity: 0; }
+}
+
+/* Footer Styling */
+footer {
+    background-color: #003087;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .card {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+}

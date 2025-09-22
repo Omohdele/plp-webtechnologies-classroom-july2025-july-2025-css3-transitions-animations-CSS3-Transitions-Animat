@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Compass</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>Career Compass</h1>
+        <nav>
+            <button id="flip-btn" aria-label="Flip career profile card">Explore Profile</button>
+            <button id="open-modal-btn" aria-label="Open contact modal">Contact Us</button>
+        </nav>
+    </header>
+
+    <!-- Part 1 & 3: Card Flip Animation Section -->
+    <main>
+        <section id="card-section">
+            <h2>Your Career Profile</h2>
+            <div class="card" id="card" aria-live="polite">
+                <div class="card-front">
+                    <h3>John Vicky</h3>
+                    <p>Software Developer</p>
+                </div>
+                <div class="card-back">
+                    <h3>Details</h3>
+                    <p>Experience: 5+ years in web development</p>
+                    <p>Skills: JavaScript, CSS, HTML</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Part 1 & 3: Modal Popup Section -->
+        <section id="modal-section">
+            <div class="modal" id="modal" aria-hidden="true">
+                <div class="modal-content">
+                    <h3>Welcome to Career Compass!</h3>
+                    <p>Submit your details to connect with our career advisors.</p>
+                    <form id="contact-form">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" required aria-required="true">
+                        <button type="submit">Submit</button>
+                    </form>
+                    <button id="close-modal-btn" aria-label="Close modal">Close</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Career Compass. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
